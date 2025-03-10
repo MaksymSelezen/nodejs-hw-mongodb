@@ -1,16 +1,19 @@
 import mongoose from 'mongoose';
-import 'dotenv/config';
+import { getEnvVar } from '../utils/getEnvVar.js';
 
-export async function initMongoConnection() {
+export const initMongoConnection = async () => {
   try {
-    const URL_DB = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_URL}/${process.env.MONGODB_DB}?retryWrites=true&w=majority`;
+    const user = getEnvVar('MONGODB_USER');
+    const pwd = getEnvVar('MONGODB_PASSWORD');
+    const url = getEnvVar('MONGODB_URL');
+    const db = getEnvVar('MONGODB_DB');
 
-    if (!URL_DB) {
-      throw new Error('❌ MONGO_URI is not defined in .env file!');
-    }
-    await mongoose.connect(URL_DB);
-  } catch (error) {
-    console.error('❌ MongoDB connection error:', error);
-    process.exit(1);
+    await mongoose.connect(
+      `mongodb+srv://${user}:${pwd}@${url}/${db}?retryWrites=true&w=majority&appName=Cluster0`,
+    );
+    console.log('Mongo connection successfully established!');
+  } catch (e) {
+    console.log('Error while setting up mongo connection', e);
+    throw e;
   }
-}
+};
