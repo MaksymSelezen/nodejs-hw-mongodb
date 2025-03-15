@@ -2,7 +2,7 @@
   "name": "nodejs-hw-mongodb",
   "private": true,
   "version": "1.0.0",
-  "description": "hw-2",
+  "description": "hw-3",
   "type": "module",
   "main": "src/index.js",
   "scripts": {
@@ -14,6 +14,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "http-errors": "^2.0.0",
     "mongoose": "^8.10.1",
     "pino-http": "^10.4.0"
   },
