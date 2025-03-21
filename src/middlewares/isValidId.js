@@ -3,13 +3,9 @@ import createHttpError from 'http-errors';
 
 export const isValidId = (req, res, next) => {
   const { contactId } = req.params;
+
   if (!isValidObjectId(contactId)) {
-    return next(
-      createHttpError(
-        400,
-        `${contactId} not valid id format: must be 24 hex characters (0-9, a-f).`,
-      ),
-    );
+    throw createHttpError(400, 'Id is not valid mongo id!');
   }
 
   next();
