@@ -7,7 +7,7 @@ export const isValidId = (req, res, next) => {
     return next(
       createHttpError(
         400,
-        'Invalid contact ID format: must be 24 hex characters (0-9, a-f).',
+        `${contactId} not valid id format: must be 24 hex characters (0-9, a-f).`,
       ),
     );
   }
