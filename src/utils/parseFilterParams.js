@@ -1,4 +1,4 @@
-const parseContactType = (type) => {
+const parseType = (type) => {
   if (typeof type !== 'string') return;
 
   const isValidType = (type) => ['work', 'home', 'personal'].includes(type);
@@ -17,13 +17,13 @@ const parseIsFavourite = (isFavourite) => {
 //
 
 export const parseFilterParams = (query) => {
-  const { type, isFavourite } = query;
+  const { contactType, isFavourite } = query;
 
-  const parsedType = parseContactType(type);
+  const parsedType = parseType(contactType);
   const parsedIsFavourite = parseIsFavourite(isFavourite);
 
   return {
-    type: parsedType,
+    contactType: parsedType,
     isFavourite: parsedIsFavourite,
   };
 };

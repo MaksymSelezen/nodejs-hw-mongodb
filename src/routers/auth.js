@@ -9,10 +9,10 @@ import {
   resetPasswordSchema,
 } from '../validation/auth.js';
 import {
-  loginUserController,
-  logoutUserController,
   registerUserController,
+  loginUserController,
   refreshUsersSessionController,
+  logoutUserController,
   sendResetEmailController,
   resetPasswordController,
 } from '../controllers/auth.js';

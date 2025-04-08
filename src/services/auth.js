@@ -12,10 +12,10 @@ import {
   SMTP,
   TEMPLATES_DIR,
 } from '../constants/index.js';
-import { SessionsCollection } from '../db/models/session.js';
-import { UsersCollection } from '../db/models/user.js';
 import { getEnvVar } from '../utils/getEnvVar.js';
 import { sendEmail } from '../utils/sendMail.js';
+import { UsersCollection } from '../db/models/user.js';
+import { SessionsCollection } from '../db/models/session.js';
 
 //
 
