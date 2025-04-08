@@ -1,0 +1,57 @@
+tags:
+  - Auth
+summary: Refresh user session
+operationId: refreshUsersSession
+description: Refreshing the user session using a refresh token
+security: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - sessionId
+          - refreshToken
+        properties:
+          sessionId:
+            type: string
+            example: 67dd73930820a621863ad82b
+          refreshToken:
+            type: string
+            example: ksIErcdA0oBwLX79f4bPcYXWKyEX/hcN6OcDU1Ll
+responses:
+  '200':
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: Successfully refreshed a session!
+            data:
+              type: object
+              required:
+                - accessToken
+              properties:
+                accessToken:
+                  type: string
+                  description: The new access token for the user session
+                  example: ksIErcdA0oBwLX79f4bPcYXWKyEX/hcN6OcDU1Ll
+  '401':
+    $ref: '../../components/responses/401.yaml'
+    description: '"Session not found" or "Session token expired"'
+  '404':
+    $ref: '../../components/responses/404.yaml'
+    description: User not found
+  '500':
+    $ref: '../../components/responses/500.yaml'
