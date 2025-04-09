@@ -14,7 +14,7 @@
       "url": "http://localhost:3000"
     },
     {
-      "url": "https://contacts-app-gnss.onrender.com"
+      "url": "https://nodejs-hw7-swagger-91dr.onrender.com"
     }
   ],
   "tags": [
@@ -157,9 +157,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
           },
           "401": {
             "$ref": "#/components/responses/401"
@@ -885,7 +882,15 @@
     "schemas": {
       "contact": {
         "type": "object",
-        "required": ["name", "phoneNumber", "contactType", "userId"],
+        "required": [
+          "_id",
+          "name",
+          "phoneNumber",
+          "contactType",
+          "userId",
+          "createdAt",
+          "updatedAt"
+        ],
         "properties": {
           "_id": {
             "description": "Contact's id",
@@ -944,7 +949,14 @@
       },
       "user": {
         "type": "object",
-        "required": ["name", "email", "password"],
+        "required": [
+          "_id",
+          "name",
+          "email",
+          "password",
+          "createdAt",
+          "updatedAt"
+        ],
         "properties": {
           "_id": {
             "type": "string",
